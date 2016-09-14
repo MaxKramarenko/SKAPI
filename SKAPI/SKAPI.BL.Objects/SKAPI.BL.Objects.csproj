@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\JsonRequestResultData.cs" />
+    <Compile Include="OwnSchedule\Notice.cs" />
+    <Compile Include="OwnSchedule\Notify.cs" />
+    <Compile Include="OwnSchedule\Pair.cs" />
+    <Compile Include="OwnSchedule\PairType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\SheduleSearchRequest.cs" />
   </ItemGroup>
