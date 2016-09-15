@@ -23,5 +23,14 @@ namespace SKAPI.BL.Objects.OwnSchedule
 
         public List<Notice> Notices { get; set; }
         public List<Notify> Notifies { get; set; }
+        public Color Color { get; set; }
+
+        public Pair()
+        {
+            Notices = new List<Notice>();
+            Notifies = new List<Notify>();
+            Type = new PairType();
+            Color = new Color();
+        }
     }
 }

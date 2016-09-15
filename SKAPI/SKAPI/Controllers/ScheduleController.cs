@@ -1,5 +1,6 @@
 ﻿using SKAPI.BL.Objects.Common;
 using SKAPI.BL.Objects.Request;
+using SKAPI.Sevices.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,22 +12,20 @@ namespace SKAPI.Controllers
 {
     public class ScheduleController : ApiController
     {
+        private readonly ScheduleService _scheduleService = new ScheduleService();
+
         [HttpGet]
         [Route("schedule/search")]
         public JsonRequestResult Search([FromBody]SheduleSearchRequest request)
         {
-            return new JsonRequestResult("");
+            return new JsonRequestResult(_scheduleService.Search(request));
         }
 
-        /*public Json GetGroups()
-        {
-            return new NotImplementedException();
-        }*/
         [HttpGet]
         [Route("schedule/properties")]
         public JsonRequestResult GetProperties()
         {
-            return new JsonRequestResult("");
+            return new JsonRequestResult(_scheduleService.GetProperties());
         }
     }
 }

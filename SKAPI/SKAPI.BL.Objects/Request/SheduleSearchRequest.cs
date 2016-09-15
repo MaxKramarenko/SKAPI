@@ -11,5 +11,14 @@ namespace SKAPI.BL.Objects.Request
         public string GroupName { get; set; }
         public string TeacherName { get; set; }
         public string ClassName { get; set; }
+
+        public Object ToDBRequest()
+        {
+            return new {
+                GroupName = GroupName,
+                TeacherName = TeacherName,
+                ClassName = ClassName
+            };
+        }
     }
 }
