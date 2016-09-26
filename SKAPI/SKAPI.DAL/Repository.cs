@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,7 +57,8 @@ namespace SKAPI.DAL
         /// <returns>System.String.</returns>
         public static string GetDatabaseConnection(Instance dc = Instance.Primary)
         {
-            return ConfigurationManager.ConnectionStrings["ConnectionString." + dc].ConnectionString;
+            return " ";
+            //return ConfigurationManager.ConnectionStrings["ConnectionString." + dc].ConnectionString;
         }
     }
 }

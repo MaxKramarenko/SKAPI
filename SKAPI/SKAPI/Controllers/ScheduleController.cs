@@ -16,7 +16,7 @@ namespace SKAPI.Controllers
 
         [HttpGet]
         [Route("schedule/search")]
-        public JsonRequestResult Search([FromBody]SheduleSearchRequest request)
+        public JsonRequestResult Search([FromBody]ScheduleSearchRequest request)
         {
             return new JsonRequestResult(_scheduleService.Search(request));
         }
@@ -27,5 +27,14 @@ namespace SKAPI.Controllers
         {
             return new JsonRequestResult(_scheduleService.GetProperties());
         }
+        [HttpGet]
+        [Route("schedule/groups")]
+        public JsonRequestResult GetAllGroups()
+        {
+            
+            return new JsonRequestResult( _scheduleService.GetAllGroups());
+        }
+
+
     }
 }

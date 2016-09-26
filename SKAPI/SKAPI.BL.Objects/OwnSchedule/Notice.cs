@@ -9,6 +9,7 @@ namespace SKAPI.BL.Objects.OwnSchedule
     public class Notice
     {
         public Guid ID { get; set; }
+        public Guid PairID { get; set; }
         public DateTime CreatedDate { get; set; }
         public string Note { get; set; }
     }

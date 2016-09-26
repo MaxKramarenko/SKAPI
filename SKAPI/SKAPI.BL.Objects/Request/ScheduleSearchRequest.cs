@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SKAPI.BL.Objects.Request
 {
-    public class SheduleSearchRequest
+    public class ScheduleSearchRequest
     {
         public string GroupName { get; set; }
         public string TeacherName { get; set; }
