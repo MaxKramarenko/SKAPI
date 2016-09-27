@@ -15,10 +15,6 @@ namespace SKAPI.BL.Objects.Common
         {
             AutoMapperConfig.RegisterMaps();
 
-            List<WeekResponce> result = new List<WeekResponce>();
-
-            WeekResponce week = new WeekResponce();
-
             destMember.Add(Mapper.Map<Week, WeekResponce>(source.Data.ListWeeks.FirtsWeek));
             destMember.Add(Mapper.Map<Week, WeekResponce>(source.Data.ListWeeks.SecondWeek));
 

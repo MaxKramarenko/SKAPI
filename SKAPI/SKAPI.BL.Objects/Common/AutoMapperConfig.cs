@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using SKAPI.BL.Objects.Schedule.Responce;
 using SKAPI.BL.Objects.Schedule;
+using SKAPI.BL.Objects.Resolvers;
 
 namespace SKAPI.BL.Objects.Common
 {
@@ -23,7 +24,18 @@ namespace SKAPI.BL.Objects.Common
 
                 config.CreateMap<Week, WeekResponce>()
                 .ForMember(dest => dest.Number,
-                opt => opt.MapFrom(src => src.Number));
+                opt => opt.MapFrom(src => src.Number))
+                .ForMember(dest => dest.Days,
+                opt=> opt.ResolveUsing<DayResolver>());
+
+                config.CreateMap<Day, DaysResponce>()
+                .ForMember(dest => dest.Lessons,
+                opt => opt.MapFrom(dest => dest.Lessons));
+
+                config.CreateMap<Lesson, LessonResponce>()
+                .ForMember(dest => dest.Name,
+                opt => opt.MapFrom(src => src.Name));
+                
             });
         }
     }
