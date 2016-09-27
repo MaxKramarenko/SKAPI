@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using SKAPI.BL.Objects.Basic;
 using SKAPI.BL.Objects.OwnSchedule;
 using SKAPI.BL.Objects.Request;
+using SKAPI.BL.Objects.Schedule;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -44,11 +45,13 @@ namespace SKAPI.Sevices.Implementation
             return resultList;
         }
 
-        public JsonGroupResponce GetTimeTableByGroupName(string groupName)
+        public TimeLine GetTimeTableByGroupName(string groupName)
         {
             var responce = SendRequest(String.Format("http://api.rozklad.org.ua/v2/groups/{0}/timetable", groupName));
 
-            return JsonConvert.DeserializeObject<JsonGroupResponce>(responce);
+            var timeLine =  JsonConvert.DeserializeObject<TimeLine>(responce);
+
+            return timeLine;
         }
 
         private string SendRequest(string url)
