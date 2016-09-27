@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SKAPI.BL.Objects.Basic;
 using SKAPI.BL.Objects.OwnSchedule;
 using SKAPI.BL.Objects.Request;
@@ -31,31 +32,43 @@ namespace SKAPI.Sevices.Implementation
 
             for (int i = 0; i < 1800; i += 100)
             {
-                WebRequest request = WebRequest.Create(
-                  "http://api.rozklad.org.ua/v2/groups?filter=" + Json.Encode(new {
-                    limit=100,
-                    offset= i
+               var responce= SendRequest("http://api.rozklad.org.ua/v2/groups?filter=" + Json.Encode(new
+                {
+                    limit = 100,
+                    offset = i
                 }));
-              
-                request.Credentials = CredentialCache.DefaultCredentials;
 
-                WebResponse response = request.GetResponse();
-
-                Stream dataStream = response.GetResponseStream();
-
-                StreamReader reader = new StreamReader(dataStream);                
-
-                string responseFromServer = reader.ReadToEnd();                
-
-                JsonGroupResponce jsonGroupRequest =Newtonsoft.Json.JsonConvert.DeserializeObject<JsonGroupResponce>(responseFromServer);
-                                
-                resultList.Add(jsonGroupRequest);
-
-                reader.Close();
-                response.Close();
+                resultList.Add(JsonConvert.DeserializeObject<JsonGroupResponce>(responce));
             }
 
             return resultList;
+        }
+
+        public JsonGroupResponce GetTimeTableByGroupName(string groupName)
+        {
+            var responce = SendRequest(String.Format("http://api.rozklad.org.ua/v2/groups/{0}/timetable", groupName));
+
+            return JsonConvert.DeserializeObject<JsonGroupResponce>(responce);
+        }
+
+        private string SendRequest(string url)
+        {
+            WebRequest request = WebRequest.Create(url);
+
+            request.Credentials = CredentialCache.DefaultCredentials;
+
+            WebResponse response = request.GetResponse();
+
+            Stream dataStream = response.GetResponseStream();
+
+            StreamReader reader = new StreamReader(dataStream);
+
+            string responseFromServer = reader.ReadToEnd();
+
+            reader.Close();
+            response.Close();
+
+            return responseFromServer;
         }
     }
 }

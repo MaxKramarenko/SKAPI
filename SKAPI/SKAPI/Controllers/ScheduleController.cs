@@ -35,6 +35,12 @@ namespace SKAPI.Controllers
             return new JsonRequestResult( _scheduleService.GetAllGroups());
         }
 
+        [HttpGet]
+        [Route("schedule/timetable/{groupName}")]
+        public JsonRequestResult GetTimeTableByGroupName([FromUri]string groupName)
+        {
+            return new JsonRequestResult(_scheduleService.GetTimeTableByGroupName(groupName));
+        }
 
     }
 }
