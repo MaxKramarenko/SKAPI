@@ -5,15 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SKAPI.BL.Objects.Schedule
+namespace SKAPI.BL.Objects.Schedule.Interfaces
 {
-    public class Day
+    public abstract class DayBase
     {
         [JsonProperty(PropertyName = "day_name")]
         public string Name { get; set; }
         [JsonProperty(PropertyName = "day_number")]
         public int Number { get; set; }
 
-        public List<Lesson> Lessons { get; set; } = new List<Lesson>();
     }
 }
