@@ -34,7 +34,15 @@ namespace SKAPI.BL.Objects.Common
 
                 config.CreateMap<Lesson, LessonResponce>()
                 .ForMember(dest => dest.Name,
-                opt => opt.MapFrom(src => src.Name));
+                opt => opt.MapFrom(src => src.Name))
+                .ForMember(dest => dest.Type,
+                opt => opt.MapFrom(src => src.Type))
+                .ForMember(dest => dest.Teacher,
+                opt => opt.MapFrom(src => src.TeacherName))
+                .ForMember(dest => dest.ClassRoom.Room,
+                opt => opt.MapFrom(src => src.Room.Split('-')[0]==null ? "1" : src.Room.Split('-')[0]))
+                .ForMember(dest => dest.ClassRoom.Building,
+                opt => opt.MapFrom(src => src.Room.Split('-')[1] == null ? "1" : src.Room.Split('-')[1]));
                 
             });
         }

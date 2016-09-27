@@ -16,7 +16,10 @@ namespace SKAPI.BL.Objects.Resolvers
         {
             AutoMapperConfig.RegisterMaps();
 
-            destMember.Add();
+            foreach(var lesson in source.Lessons)
+            {
+                destMember.Add(Mapper.Map<Lesson, LessonResponce>(lesson));
+            }
 
             return destMember;
         }
