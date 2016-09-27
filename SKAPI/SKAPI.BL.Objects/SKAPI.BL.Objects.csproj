@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Basic\Group.cs" />
+    <Compile Include="Basic\Meta.cs" />
     <Compile Include="Responce\JsonGroupResponce.cs" />
     <Compile Include="Common\JsonRequestResultData.cs" />
     <Compile Include="OwnSchedule\Color.cs" />

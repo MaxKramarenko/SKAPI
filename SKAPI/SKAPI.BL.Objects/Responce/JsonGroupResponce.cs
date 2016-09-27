@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using SKAPI.BL.Objects.Schedule;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +14,8 @@ namespace SKAPI.BL.Objects.Basic
         public string TimeStamp { get; set; }
         public string Message { get; set; }
         public string DebugInfo { get; set; }
-        public object Meta { get; set; }
-        public object Data { get; set; }
+        public Meta Meta { get; set; }
+        [JsonProperty("data")]
+        public List<GroupInfo> Groups { get; set; }
     }
 }
