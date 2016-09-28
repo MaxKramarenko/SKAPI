@@ -14,8 +14,6 @@ namespace SKAPI.BL.Objects.Resolvers
     {
         public List<DaysResponce> Resolve(Week source, WeekResponce destination, List<DaysResponce> destMember, ResolutionContext context)
         {
-            AutoMapperConfig.RegisterMaps();
-
             destMember.Add(Mapper.Map<Day, DaysResponce>(source.Days.DayOne));
             destMember.Add(Mapper.Map<Day, DaysResponce>(source.Days.DayTwo));
             destMember.Add(Mapper.Map<Day, DaysResponce>(source.Days.DayThree));

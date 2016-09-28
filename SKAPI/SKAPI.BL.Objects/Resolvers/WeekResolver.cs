@@ -13,8 +13,6 @@ namespace SKAPI.BL.Objects.Common
     {
         public List<WeekResponce> Resolve(TimeLine source, ScheduleResponce destination, List<WeekResponce> destMember, ResolutionContext context)
         {
-            AutoMapperConfig.RegisterMaps();
-
             destMember.Add(Mapper.Map<Week, WeekResponce>(source.Data.ListWeeks.FirtsWeek));
             destMember.Add(Mapper.Map<Week, WeekResponce>(source.Data.ListWeeks.SecondWeek));
 

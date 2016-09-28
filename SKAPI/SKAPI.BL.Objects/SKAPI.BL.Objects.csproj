@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -46,8 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basic\ClassRoom.cs" />
     <Compile Include="Basic\Group.cs" />
     <Compile Include="Basic\Meta.cs" />
+    <Compile Include="Common\AutoMapperConfig.cs" />
+    <Compile Include="Extenssions\TimeLineToScheduleExtenssion.cs" />
+    <Compile Include="Resolvers\ClassRoomResolver.cs" />
+    <Compile Include="Resolvers\DayResolver.cs" />
+    <Compile Include="Resolvers\LessonResolver.cs" />
+    <Compile Include="Resolvers\WeekResolver.cs" />
     <Compile Include="Responce\JsonGroupResponce.cs" />
     <Compile Include="Common\JsonRequestResultData.cs" />
     <Compile Include="OwnSchedule\Color.cs" />
@@ -57,16 +68,21 @@
     <Compile Include="OwnSchedule\PairType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\ScheduleSearchRequest.cs" />
-    <Compile Include="Schedule\Data.cs" />
-    <Compile Include="Schedule\Day.cs" />
-    <Compile Include="Schedule\GroupInfo.cs" />
-    <Compile Include="Schedule\Lesson.cs" />
-    <Compile Include="Schedule\ListDays.cs" />
-    <Compile Include="Schedule\ListWeek.cs" />
-    <Compile Include="Schedule\Room.cs" />
-    <Compile Include="Schedule\Teacher.cs" />
-    <Compile Include="Schedule\TimeLine.cs" />
-    <Compile Include="Schedule\Week.cs" />
+    <Compile Include="Schedule\Interfaces\DayBase.cs" />
+    <Compile Include="Schedule\Request\Data.cs" />
+    <Compile Include="Schedule\Request\Day.cs" />
+    <Compile Include="Schedule\Request\GroupInfo.cs" />
+    <Compile Include="Schedule\Request\Lesson.cs" />
+    <Compile Include="Schedule\Request\ListDays.cs" />
+    <Compile Include="Schedule\Request\ListWeek.cs" />
+    <Compile Include="Schedule\Request\Room.cs" />
+    <Compile Include="Schedule\Request\Teacher.cs" />
+    <Compile Include="Schedule\Request\TimeLine.cs" />
+    <Compile Include="Schedule\Request\Week.cs" />
+    <Compile Include="Schedule\Responce\DaysResponce.cs" />
+    <Compile Include="Schedule\Responce\LessonResponce.cs" />
+    <Compile Include="Schedule\Responce\ScheduleResponce.cs" />
+    <Compile Include="Schedule\Responce\WeekResponce.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

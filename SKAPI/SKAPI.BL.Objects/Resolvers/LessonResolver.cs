@@ -14,8 +14,6 @@ namespace SKAPI.BL.Objects.Resolvers
     {
         public List<LessonResponce> Resolve(Day source, DaysResponce destination, List<LessonResponce> destMember, ResolutionContext context)
         {
-            AutoMapperConfig.RegisterMaps();
-
             foreach(var lesson in source.Lessons)
             {
                 destMember.Add(Mapper.Map<Lesson, LessonResponce>(lesson));

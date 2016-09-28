@@ -4,6 +4,7 @@ using SKAPI.BL.Objects.Basic;
 using SKAPI.BL.Objects.OwnSchedule;
 using SKAPI.BL.Objects.Request;
 using SKAPI.BL.Objects.Schedule;
+using SKAPI.BL.Objects.Schedule.Responce;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +13,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Helpers;
+using AutoMapper;
+using SKAPI.BL.Objects.Common;
+using SKAPI.BL.Objects.Extenssions;
 
 namespace SKAPI.Sevices.Implementation
 {
@@ -45,13 +49,15 @@ namespace SKAPI.Sevices.Implementation
             return resultList;
         }
 
-        public TimeLine GetTimeTableByGroupName(string groupName)
+        public ScheduleResponce GetTimeTableByGroupName(string groupName)
         {
+            AutoMapperConfig.RegisterMaps();
+
             var responce = SendRequest(String.Format("http://api.rozklad.org.ua/v2/groups/{0}/timetable", groupName));
 
             var timeLine =  JsonConvert.DeserializeObject<TimeLine>(responce);
 
-            return timeLine;
+            return timeLine.ToResponce();
         }
 
         private string SendRequest(string url)

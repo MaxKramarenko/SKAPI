@@ -12,7 +12,7 @@ namespace SKAPI.BL.Objects.Schedule
     public class Week
     {
         [JsonProperty(PropertyName = "week_number")]
-        public string Number { get; set; }
+        public int Number { get; set; }
         //public List<Day> Days { get; set; } = new List<Day>();
         [JsonProperty(PropertyName = "days")]
         public ListDays Days { get; set; }
