@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using System.Web.Helpers;
 using AutoMapper;
 using SKAPI.BL.Objects.Common;
-using SKAPI.BL.Objects.Extenssions;
+using SKAPI.BL.Objects.Extensions;
 
 namespace SKAPI.Sevices.Implementation
 {
@@ -31,9 +31,9 @@ namespace SKAPI.Sevices.Implementation
             return new List<Pair>();
         }
 
-        public List<JsonGroupResponce> GetAllGroups()
+        public List<GroupResponce> GetAllGroups()
         {
-            var resultList = new List<JsonGroupResponce>();
+            var resultList = new List<GroupResponce>();
 
             for (int i = 0; i < 1800; i += 100)
             {
@@ -43,13 +43,13 @@ namespace SKAPI.Sevices.Implementation
                     offset = i
                 }));
 
-                resultList.Add(JsonConvert.DeserializeObject<JsonGroupResponce>(responce));
+                resultList.Add(JsonConvert.DeserializeObject<Group>(responce).ToGroup());
             }
 
             return resultList;
         }
 
-        public ScheduleResponce GetTimeTableByGroupName(string groupName)
+        public ScheduleResponce GetTimeTableByGroupName(int groupName)
         {
             AutoMapperConfig.RegisterMaps();
 

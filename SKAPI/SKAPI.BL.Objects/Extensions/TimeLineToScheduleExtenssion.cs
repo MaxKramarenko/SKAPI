@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SKAPI.BL.Objects.Extenssions
+namespace SKAPI.BL.Objects.Extensions
 {
     public static class TimeLineToScheduleExtenssion
     {
