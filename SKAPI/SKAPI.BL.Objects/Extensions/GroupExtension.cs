@@ -16,8 +16,7 @@ namespace SKAPI.BL.Objects.Extensions
             {
                 FullName = group.FullName,
                 ID = group.ID,
-                Prefix = group.Prefix,
-                Type = group.Type
+                Prefix = group.Prefix
             };
         }
     }
