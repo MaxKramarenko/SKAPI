@@ -42,8 +42,10 @@ namespace SKAPI.Sevices.Implementation
                     limit = 100,
                     offset = i
                 }));
-
-                resultList.Add(JsonConvert.DeserializeObject<Group>(responce).ToGroup());
+                var test = (JsonConvert.DeserializeObject<GroupsRequest>(responce));
+                //resultList.Add(JsonConvert.DeserializeObject<GroupsRequest>(responce).ToGroup());
+                var grops = JsonConvert.DeserializeObject<GroupsRequest>(responce);
+                resultList.AddRange(grops.groups.ToListGroup());
             }
 
             return resultList;

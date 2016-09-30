@@ -54,7 +54,9 @@
     <Compile Include="Basic\Group.cs" />
     <Compile Include="Basic\Meta.cs" />
     <Compile Include="Common\AutoMapperConfig.cs" />
-    <Compile Include="Extenssions\TimeLineToScheduleExtenssion.cs" />
+    <Compile Include="Extensions\GroupExtension.cs" />
+    <Compile Include="Extensions\TimeLineToScheduleExtenssion.cs" />
+    <Compile Include="Request\GroupsRequest.cs" />
     <Compile Include="Resolvers\ClassRoomResolver.cs" />
     <Compile Include="Resolvers\DayResolver.cs" />
     <Compile Include="Resolvers\LessonResolver.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Schedule\Request\TimeLine.cs" />
     <Compile Include="Schedule\Request\Week.cs" />
     <Compile Include="Schedule\Responce\DaysResponce.cs" />
+    <Compile Include="Schedule\Responce\GroupResponce.cs" />
     <Compile Include="Schedule\Responce\LessonResponce.cs" />
     <Compile Include="Schedule\Responce\ScheduleResponce.cs" />
     <Compile Include="Schedule\Responce\WeekResponce.cs" />

@@ -1,4 +1,5 @@
 ﻿using SKAPI.BL.Objects.Basic;
+using SKAPI.BL.Objects.Schedule;
 using SKAPI.BL.Objects.Schedule.Responce;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace SKAPI.BL.Objects.Extensions
 {
     public static class GroupExtension
     {
-        public static GroupResponce ToGroup(this Group group)
+        public static GroupResponce ToGroup(this GroupInfo group)
         {
             return new GroupResponce()
             {
@@ -18,6 +19,18 @@ namespace SKAPI.BL.Objects.Extensions
                 ID = group.ID,
                 Prefix = group.Prefix
             };
+        }
+
+        public static List<GroupResponce> ToListGroup(this List<GroupInfo> groups)
+        {
+            var result = new List<GroupResponce>();
+
+            foreach(var group in groups)
+            {
+                result.Add(group.ToGroup());
+            }
+
+            return result;
         }
     }
 }
