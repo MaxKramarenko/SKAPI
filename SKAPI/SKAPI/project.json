@@ -1,3 +1,7 @@
 ﻿"dependencies": {
-    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final"
+  "Microsoft.AspNet.Api": "6.0.0-rc1-final"
+}
+
+"scripts": {
+    "postrestore": ["cd ../.. && npm i && cd src/SKAPI"]
 }
