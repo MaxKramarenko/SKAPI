@@ -1,3 +1,0 @@
-﻿plugins: [
-  new webpack.HotModuleReplacementPlugin()
-]
