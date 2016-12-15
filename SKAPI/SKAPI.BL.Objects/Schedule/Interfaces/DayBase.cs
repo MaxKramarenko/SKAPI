@@ -11,6 +11,7 @@ namespace SKAPI.BL.Objects.Schedule.Interfaces
     {
         [JsonProperty(PropertyName = "day_name")]
         public string Name { get; set; }
+
         [JsonProperty(PropertyName = "day_number")]
         public int Number { get; set; }
 

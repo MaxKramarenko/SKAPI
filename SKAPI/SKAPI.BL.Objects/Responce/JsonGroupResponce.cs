@@ -16,6 +16,6 @@ namespace SKAPI.BL.Objects.Basic
         public string DebugInfo { get; set; }
         public Meta Meta { get; set; }
         [JsonProperty("data")]
-        public List<GroupInfo> Groups { get; set; }
+        public List<Schedule.Group> Groups { get; set; }
     }
 }

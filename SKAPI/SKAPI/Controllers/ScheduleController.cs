@@ -17,10 +17,31 @@ namespace SKAPI.Controllers
         private readonly ScheduleService _scheduleService = new ScheduleService();
 
         [HttpGet]
+        [Route("schedule/weeks")]
+        public JsonRequestResult getCurrentWeek()
+        {
+            return new JsonRequestResult(_scheduleService.getCurrentWeek());
+        }
+
+        [HttpGet]
         [Route("schedule/search")]
         public JsonRequestResult Search([FromBody]ScheduleSearchRequest request)
         {
             return new JsonRequestResult(_scheduleService.Search(request));
+        }
+
+        [HttpGet]
+        [Route("schedule/groups/search/{id}")]
+        public JsonRequestResult GroupSearch([FromUri]String id)
+        {
+            return new JsonRequestResult(_scheduleService.GroupSearch(id));
+        }
+
+        [HttpGet]
+        [Route("schedule/groups/{id}")]
+        public JsonRequestResult getGroupByName([FromUri]String id)
+        {
+            return new JsonRequestResult(_scheduleService.getGroupByName(id));
         }
 
         [HttpGet]
@@ -29,20 +50,19 @@ namespace SKAPI.Controllers
         {
             return new JsonRequestResult(_scheduleService.GetProperties());
         }
+
         [HttpGet]
         [Route("schedule/groups")]
         public JsonRequestResult GetAllGroups()
         {
-            
-            return new JsonRequestResult( _scheduleService.GetAllGroups());
+            return new JsonRequestResult(_scheduleService.GetAllGroups());
         }
 
         [HttpGet]
-        [Route("schedule/timetable/{id:int}")]
-        public JsonRequestResult GetTimeTableByGroupName([FromUri]int id)
+        [Route("schedule/timetable/{id}")]
+        public JsonRequestResult GetTimeTableByGroupName([FromUri]String id)
         {
             return new JsonRequestResult(_scheduleService.GetTimeTableByGroupName(id));
         }
-
     }
 }

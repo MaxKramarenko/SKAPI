@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace SKAPI.BL.Objects.Schedule.Responce
 {
-    public class ScheduleResponce
+    public class CurrentWeekResponce
     {
-        public GroupResponce Group { get; set; }
-
-        public List<WeekResponce> Weeks{get;set;}
+        public int CurrentWeek { get; set; }
     }
 }

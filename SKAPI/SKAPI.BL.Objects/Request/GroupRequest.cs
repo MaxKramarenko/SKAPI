@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SKAPI.BL.Objects.Basic;
 using SKAPI.BL.Objects.Schedule;
 using System;
 using System.Collections.Generic;
@@ -9,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SKAPI.BL.Objects.Request
 {
-    public class GroupsRequest
+    public class GroupRequest
     {
         [JsonProperty("data")]
-        public List<Schedule.Group> groups { get; set; } = new List<Schedule.Group>();
+        public Group group { get; set; } = new Group();
     }
 }

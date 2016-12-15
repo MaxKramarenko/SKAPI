@@ -1,21 +1,15 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using SKAPI.BL.Objects.Basic;
-using SKAPI.BL.Objects.OwnSchedule;
+﻿using SKAPI.BL.Objects.OwnSchedule;
 using SKAPI.BL.Objects.Request;
 using SKAPI.BL.Objects.Schedule;
 using SKAPI.BL.Objects.Schedule.Responce;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Helpers;
-using AutoMapper;
-using SKAPI.BL.Objects.Common;
 using SKAPI.BL.Objects.Extensions;
+using Newtonsoft.Json;
+using SKAPI.BL.Objects.Schedule.Request;
+using System.Web.Helpers;
 
 namespace SKAPI.Sevices.Implementation
 {
@@ -24,6 +18,33 @@ namespace SKAPI.Sevices.Implementation
         public List<Pair> Search(ScheduleSearchRequest scheduleRequest)
         {
             return new List<Pair>();
+        }
+
+        public CurrentWeekResponce getCurrentWeek()
+        {
+            var result = new CurrentWeekResponce();
+            var response = SendRequest("http://api.rozklad.org.ua/v2/weeks");
+            var currentweek = JsonConvert.DeserializeObject<CurrentWeek>(response);
+            return currentweek.ToCurrentWeek();
+        }
+
+        public List<GroupResponce> GroupSearch(String id)
+        {
+            var resultList = new List<GroupResponce>();
+            var response = SendRequest("http://api.rozklad.org.ua/v2/groups/?search=" + Json.Encode(new
+            {
+                query = id
+            }));
+            var grops = JsonConvert.DeserializeObject<GroupsRequest>(response);
+            resultList.AddRange(grops.groups.ToListGroup());
+            return resultList;
+        }
+
+        public GroupResponce getGroupByName(String id)
+        {
+            var response = SendRequest("http://api.rozklad.org.ua/v2/groups/" + id);
+            var group = JsonConvert.DeserializeObject<GroupRequest>(response);
+            return group.group.ToGroup();
         }
 
         public List<Pair> GetProperties()
@@ -37,13 +58,11 @@ namespace SKAPI.Sevices.Implementation
 
             for (int i = 0; i < 1800; i += 100)
             {
-               var responce= SendRequest("http://api.rozklad.org.ua/v2/groups?filter=" + Json.Encode(new
+                var responce = SendRequest("http://api.rozklad.org.ua/v2/groups?filter=" + Json.Encode(new
                 {
                     limit = 100,
                     offset = i
                 }));
-                var test = (JsonConvert.DeserializeObject<GroupsRequest>(responce));
-                //resultList.Add(JsonConvert.DeserializeObject<GroupsRequest>(responce).ToGroup());
                 var grops = JsonConvert.DeserializeObject<GroupsRequest>(responce);
                 resultList.AddRange(grops.groups.ToListGroup());
             }
@@ -51,13 +70,11 @@ namespace SKAPI.Sevices.Implementation
             return resultList;
         }
 
-        public ScheduleResponce GetTimeTableByGroupName(int groupName)
+        public ScheduleResponce GetTimeTableByGroupName(String groupName)
         {
-            AutoMapperConfig.RegisterMaps();
-
             var responce = SendRequest(String.Format("http://api.rozklad.org.ua/v2/groups/{0}/timetable", groupName));
 
-            var timeLine =  JsonConvert.DeserializeObject<TimeLine>(responce);
+            var timeLine = JsonConvert.DeserializeObject<TimeLine>(responce);
 
             return timeLine.ToResponce();
         }

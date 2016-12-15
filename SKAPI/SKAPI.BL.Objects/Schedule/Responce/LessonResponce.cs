@@ -11,6 +11,12 @@ namespace SKAPI.BL.Objects.Schedule.Responce
     {
         public string Name { get; set; }
         public string Type { get; set; }
+
+        public int Number { get; set; }
+
+        public string Start { get; set; }
+        public string End { get; set; }
+
         public ClassRoom ClassRoom { get; set; }
         public string Teacher { get; set; }
     }
