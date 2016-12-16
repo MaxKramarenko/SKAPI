@@ -14,11 +14,13 @@ namespace SKAPI.BL.Objects.Extensions
         {
             var table = new DataTable();
 
-            table.Columns.Add("ID");
+            table.Columns.Add("ID", typeof(int));
             table.Columns.Add("FullName");
             table.Columns.Add("Prefix");
+            table.Columns.Add("Okr");
             table.Columns.Add("Type");
             table.Columns.Add("Url");
+           
 
 
             foreach (var g in groups)
@@ -28,8 +30,10 @@ namespace SKAPI.BL.Objects.Extensions
                 row["ID"] = g.ID;
                 row["FullName"] = g.FullName;
                 row["Prefix"] = g.Prefix;
+                row["Okr"] = g.Okr;
                 row["Type"] = g.Type;
-                row["Url"] = g.Url;
+                row["Url"] = "";
+               
 
                 table.Rows.Add(row);
             }

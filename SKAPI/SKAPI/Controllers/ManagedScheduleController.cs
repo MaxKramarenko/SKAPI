@@ -28,6 +28,13 @@ namespace SKAPI.Controllers
             return new JsonRequestResult(_managedService.GetAll());
         }
 
+        [HttpGet]
+        [Route("managedschedule/{name}")]
+        public JsonRequestResult GetAll(string name)
+        {
+            return new JsonRequestResult(_managedService.GetByName(name));
+        }
+
         [HttpPut]
         [Route("managedschedule")]
         public JsonRequestResult Update([FromBody] Pair pair)
@@ -39,7 +46,8 @@ namespace SKAPI.Controllers
         [Route("managedschedule/{id:guid}")]
         public JsonRequestResult Delete([FromUri] Guid id)
         {
-            return new JsonRequestResult(_managedService.Delete(id));
+            _managedService.Delete(id);
+            return new JsonRequestResult(true);
         }
 
     }

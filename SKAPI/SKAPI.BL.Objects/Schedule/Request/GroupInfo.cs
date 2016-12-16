@@ -15,11 +15,11 @@ namespace SKAPI.BL.Objects.Schedule
         public string FullName { get; set; }
         [JsonProperty(PropertyName = "group_prefix")]
         public string Prefix { get; set; }
-        [JsonProperty(PropertyName = "group_okr")]
-        public string Type { get; set; }
         [JsonProperty(PropertyName = "group_type")]
-        public string Url { get; set; }
+        public string Type { get; set; }
         [JsonProperty(PropertyName = "group_url")]
+        public string Url { get; set; }
+        [JsonProperty(PropertyName = "group_okr")]
         public string Okr { get; set; }
     }
 }

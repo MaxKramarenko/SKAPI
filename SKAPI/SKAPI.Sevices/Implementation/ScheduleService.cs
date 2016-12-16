@@ -31,31 +31,6 @@ namespace SKAPI.Sevices.Implementation
             return new List<Pair>();
         }
 
-        public List<GroupResponce> GetAllGroups()
-        {
-            var resultList = new List<GroupResponce>();
-
-            for (int i = 0; i < 1800; i += 100)
-            {
-               var responce= SendRequest("http://api.rozklad.org.ua/v2/groups?filter=" + Json.Encode(new
-                {
-                    limit = 100,
-                    offset = i
-                }));
-                var test = (JsonConvert.DeserializeObject<GroupsRequest>(responce));
-                //resultList.Add(JsonConvert.DeserializeObject<GroupsRequest>(responce).ToGroup());
-                var grops = JsonConvert.DeserializeObject<GroupsRequest>(responce);
-                resultList.AddRange(grops.groups.ToListGroup());
-            }
-
-            return resultList;
-        }
-
-        public List<GroupResponce> GetGroupByName(string Name)
-        {
-            return new List<GroupResponce>();
-        }
-
         public ScheduleResponce GetTimeTableByGroupID(int id)
         {
             var responce = SendRequest(String.Format("http://api.rozklad.org.ua/v2/groups/{0}/timetable", id));

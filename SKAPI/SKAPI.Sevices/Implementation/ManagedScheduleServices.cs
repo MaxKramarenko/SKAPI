@@ -17,19 +17,24 @@ namespace SKAPI.Sevices.Implementation
             return _repository.Get(new {ID = id }).FirstOrDefault();
         }
 
+        public List<Pair> GetByName(string name)
+        {
+            return _repository.Get(new {Name = name });
+        }
+
         public List<Pair> GetAll()
         {
             return _repository.Get(new { });
         }
 
-        public Boolean Update(Pair pair)
+        public Guid Update(Pair pair)
         {
-            return _repository.Update(pair);
+            return _repository.Modify(pair);
         }
 
-        public Boolean Delete(Guid id)
+        public void Delete(Guid id)
         {
-            return _repository.Delete(new { ID = id });
+            _repository.Delete(new { ID = id });
         }
     }
 }

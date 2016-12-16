@@ -1,27 +1,44 @@
 ﻿using SKAPI.BL.Objects.OwnSchedule;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
 
 namespace SKAPI.DAL.Repositories
 {
     public class ManagedScheduleRepository
     {
-        public List<Pair> Get(Object obj)
+        public List<Pair> Get(object obj)
         {
-            return new List<Pair>();
+            using (var multi = Repository.GetConnection().QueryMultiple("dbo.TimeTableGet", obj, commandType: CommandType.StoredProcedure, commandTimeout: int.MaxValue))
+            {
+                var leases = multi.Read<Pair>().ToDictionary(x => x.ID, x => x);
+
+                return leases.Values.ToList();
+            }
         }
 
-        public Boolean Update(Pair pair)
+        public Guid Modify(Pair pair)
         {
-            return true;
+            return Repository.GetConnection().Query<Guid>("dbo.TimeTableInsert", new
+            {
+                ID = pair.ID,
+                Name = pair.Name,
+                ClassRoom = pair.Room,
+                pair.Type,
+                pair.Teacher,
+                Pair = pair.Number,
+                Day = pair.Day,
+                pair.Week
+            }, commandType: CommandType.StoredProcedure, commandTimeout: int.MaxValue).First();
         }
-
-        public Boolean Delete(Object obj)
+        public void Delete(object obj)
         {
-            return false;
+            Repository.GetConnection()
+                .Execute("dbo.TimeTableDelete", obj, commandType: CommandType.StoredProcedure, commandTimeout: int.MaxValue);
         }
 
     }

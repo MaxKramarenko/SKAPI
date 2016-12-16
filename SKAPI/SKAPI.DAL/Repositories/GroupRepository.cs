@@ -9,13 +9,13 @@ using SKAPI.BL.Objects.Schedule.Responce;
 
 namespace SKAPI.DAL.Repositories
 {
-    public class ScheduleRepository
+    public class GroupRepository
     {
-        public void ModifyAmount(object obj)
+        public void GroupUpdate(object obj)
         {
             using (
                Repository.GetConnection()
-                    .QueryMultiple("GroupsInsert", obj, commandType: CommandType.StoredProcedure,
+                    .QueryMultiple("GroupInsert", obj, commandType: CommandType.StoredProcedure,
                         commandTimeout: int.MaxValue)) { }
         }
 
