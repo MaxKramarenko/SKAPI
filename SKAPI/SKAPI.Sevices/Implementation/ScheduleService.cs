@@ -51,13 +51,25 @@ namespace SKAPI.Sevices.Implementation
             return resultList;
         }
 
-        public ScheduleResponce GetTimeTableByGroupName(int groupName)
+        public List<GroupResponce> GetGroupByName(string Name)
         {
-            AutoMapperConfig.RegisterMaps();
+            return new List<GroupResponce>();
+        }
 
-            var responce = SendRequest(String.Format("http://api.rozklad.org.ua/v2/groups/{0}/timetable", groupName));
+        public ScheduleResponce GetTimeTableByGroupID(int id)
+        {
+            var responce = SendRequest(String.Format("http://api.rozklad.org.ua/v2/groups/{0}/timetable", id));
 
             var timeLine =  JsonConvert.DeserializeObject<TimeLine>(responce);
+
+            return timeLine.ToResponce();
+        }
+
+        public ScheduleResponce GetTimeTableByGroupName(string name)
+        {
+            var responce = SendRequest(String.Format("http://api.rozklad.org.ua/v2/groups/{0}/timetable", name));
+
+            var timeLine = JsonConvert.DeserializeObject<TimeLine>(responce);
 
             return timeLine.ToResponce();
         }

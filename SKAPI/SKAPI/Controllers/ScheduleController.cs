@@ -29,6 +29,7 @@ namespace SKAPI.Controllers
         {
             return new JsonRequestResult(_scheduleService.GetProperties());
         }
+
         [HttpGet]
         [Route("schedule/groups")]
         public JsonRequestResult GetAllGroups()
@@ -38,10 +39,24 @@ namespace SKAPI.Controllers
         }
 
         [HttpGet]
-        [Route("schedule/timetable/{id:int}")]
-        public JsonRequestResult GetTimeTableByGroupName([FromUri]int id)
+        [Route("schedule/groups/{name:string}")]
+        public JsonRequestResult GetGroupByName()
         {
-            return new JsonRequestResult(_scheduleService.GetTimeTableByGroupName(id));
+          return new JsonRequestResult(_scheduleService.GetGroupByName());
+        }
+
+        [HttpGet]
+        [Route("schedule/timetable/{id:int}")]
+        public JsonRequestResult GetTimeTableByGroupID([FromUri]int id)
+        {
+            return new JsonRequestResult(_scheduleService.GetTimeTableByGroupID(id));
+        }
+
+        [HttpGet]
+        [Route("schedule/timetable/{name:string}")]
+        public JsonRequestResult GetTimeTableByGroupName([FromUri]string name)
+        {
+            return new JsonRequestResult(_scheduleService.GetTimeTableByGroupName(name));
         }
 
     }

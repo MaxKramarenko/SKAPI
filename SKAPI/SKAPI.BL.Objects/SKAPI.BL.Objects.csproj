@@ -82,6 +82,7 @@
     <Compile Include="Basic\Meta.cs" />
     <Compile Include="Common\AutoMapperConfig.cs" />
     <Compile Include="Extensions\GroupExtension.cs" />
+    <Compile Include="Extensions\GroupsTVP.cs" />
     <Compile Include="Extensions\TimeLineToScheduleExtenssion.cs" />
     <Compile Include="Request\GroupsRequest.cs" />
     <Compile Include="Resolvers\ClassRoomResolver.cs" />

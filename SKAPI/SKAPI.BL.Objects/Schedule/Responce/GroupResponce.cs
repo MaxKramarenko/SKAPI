@@ -11,5 +11,8 @@ namespace SKAPI.BL.Objects.Schedule.Responce
         public int ID { get; set; }
         public string FullName { get; set; }
         public string Prefix { get; set; }
+        public string Okr { get; set; }
+        public string Type { get; set; }
+        public string Url { get; set; }
     }
 }
