@@ -52,20 +52,8 @@ namespace SKAPI.Sevices.Implementation
             return new List<Pair>();
         }
 
-        public ScheduleResponce GetTimeTableByGroupID(int id)
+        public List<GroupResponce> GetAllGroups()
         {
-<<<<<<< HEAD
-            var responce = SendRequest(String.Format("http://api.rozklad.org.ua/v2/groups/{0}/timetable", id));
-
-            var timeLine =  JsonConvert.DeserializeObject<TimeLine>(responce);
-
-            return timeLine.ToResponce();
-        }
-
-        public ScheduleResponce GetTimeTableByGroupName(string name)
-        {
-            var responce = SendRequest(String.Format("http://api.rozklad.org.ua/v2/groups/{0}/timetable", name));
-=======
             var resultList = new List<GroupResponce>();
 
             for (int i = 0; i < 1800; i += 100)
@@ -85,7 +73,6 @@ namespace SKAPI.Sevices.Implementation
         public ScheduleResponce GetTimeTableByGroupName(String groupName)
         {
             var responce = SendRequest(String.Format("http://api.rozklad.org.ua/v2/groups/{0}/timetable", groupName));
->>>>>>> v2
 
             var timeLine = JsonConvert.DeserializeObject<TimeLine>(responce);
 

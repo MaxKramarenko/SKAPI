@@ -16,18 +16,11 @@ namespace SKAPI.BL.Objects.Extensions
             return new GroupResponce()
             {
                 ID = group.ID,
-<<<<<<< HEAD
-                Prefix = group.Prefix,
-                Okr = group.Okr,
-                Url = group.Url,
-                Type = group.Type
-=======
                 FullName = group.FullName,
                 Prefix = group.Prefix,
                 Type = group.Type,
                 Url = group.Url,
                 Okr = group.Okr
->>>>>>> v2
             };
         }
 
