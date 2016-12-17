@@ -14,7 +14,6 @@ namespace SKAPI
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            AutoMapperConfig.RegisterMaps();
         }
     }
 }

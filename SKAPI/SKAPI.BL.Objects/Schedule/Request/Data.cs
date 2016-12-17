@@ -9,7 +9,7 @@ namespace SKAPI.BL.Objects.Schedule
 {
     public class Data
     {
-        public GroupInfo Group { get; set;}
+        public Group Group { get; set;}
 
         [JsonProperty(PropertyName = "weeks")]             
         public ListWeek ListWeeks { get; set; } 

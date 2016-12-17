@@ -78,12 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Basic\ClassRoom.cs" />
-    <Compile Include="Basic\Group.cs" />
     <Compile Include="Basic\Meta.cs" />
-    <Compile Include="Common\AutoMapperConfig.cs" />
+    <Compile Include="Extensions\CurrentWeekExtension.cs" />
     <Compile Include="Extensions\GroupExtension.cs" />
     <Compile Include="Extensions\GroupsTVP.cs" />
     <Compile Include="Extensions\TimeLineToScheduleExtenssion.cs" />
+    <Compile Include="Request\GroupRequest.cs" />
     <Compile Include="Request\GroupsRequest.cs" />
     <Compile Include="Resolvers\ClassRoomResolver.cs" />
     <Compile Include="Resolvers\DayResolver.cs" />
@@ -99,9 +99,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\ScheduleSearchRequest.cs" />
     <Compile Include="Schedule\Interfaces\DayBase.cs" />
+    <Compile Include="Schedule\Request\CurrentWeek.cs" />
     <Compile Include="Schedule\Request\Data.cs" />
     <Compile Include="Schedule\Request\Day.cs" />
-    <Compile Include="Schedule\Request\GroupInfo.cs" />
+    <Compile Include="Schedule\Request\Group.cs" />
     <Compile Include="Schedule\Request\Lesson.cs" />
     <Compile Include="Schedule\Request\ListDays.cs" />
     <Compile Include="Schedule\Request\ListWeek.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Schedule\Request\Teacher.cs" />
     <Compile Include="Schedule\Request\TimeLine.cs" />
     <Compile Include="Schedule\Request\Week.cs" />
+    <Compile Include="Schedule\Responce\CurrentWeekResponce.cs" />
     <Compile Include="Schedule\Responce\DaysResponce.cs" />
     <Compile Include="Schedule\Responce\GroupResponce.cs" />
     <Compile Include="Schedule\Responce\LessonResponce.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Schedule\Responce\WeekResponce.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

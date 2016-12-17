@@ -11,24 +11,31 @@ namespace SKAPI.BL.Objects.Extensions
 {
     public static class GroupExtension
     {
-        public static GroupResponce ToGroup(this GroupInfo group)
+        public static GroupResponce ToGroup(this Schedule.Group group)
         {
             return new GroupResponce()
             {
-                FullName = group.FullName,
                 ID = group.ID,
+<<<<<<< HEAD
                 Prefix = group.Prefix,
                 Okr = group.Okr,
                 Url = group.Url,
                 Type = group.Type
+=======
+                FullName = group.FullName,
+                Prefix = group.Prefix,
+                Type = group.Type,
+                Url = group.Url,
+                Okr = group.Okr
+>>>>>>> v2
             };
         }
 
-        public static List<GroupResponce> ToListGroup(this List<GroupInfo> groups)
+        public static List<GroupResponce> ToListGroup(this List<Schedule.Group> groups)
         {
             var result = new List<GroupResponce>();
 
-            foreach(var group in groups)
+            foreach (var group in groups)
             {
                 result.Add(group.ToGroup());
             }

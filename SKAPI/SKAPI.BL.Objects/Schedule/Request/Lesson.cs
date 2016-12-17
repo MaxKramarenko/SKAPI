@@ -21,8 +21,10 @@ namespace SKAPI.BL.Objects.Schedule
         public string Name { get; set; }
         [JsonProperty(PropertyName = "lesson_full_name")]
         public string FullName { get; set; }
+
         [JsonProperty(PropertyName = "lesson_number")]
         public int Number { get; set; }
+
         [JsonProperty(PropertyName = "lesson_room")]
         public string Room { get; set; }
         [JsonProperty(PropertyName = "lesson_type")]
@@ -31,10 +33,12 @@ namespace SKAPI.BL.Objects.Schedule
         public string TeacherName { get; set; }
         [JsonProperty(PropertyName = "lesson_week")]
         public int WeekNumber { get; set; }
+
         [JsonProperty(PropertyName = "time_start")]
         public string Start { get; set; }
         [JsonProperty(PropertyName = "time_end")]
         public string End { get; set; }
+
         [JsonProperty(PropertyName = "rate")]
         public double Rate { get; set; }
 
