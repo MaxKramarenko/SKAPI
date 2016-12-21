@@ -10,6 +10,6 @@ namespace SKAPI.BL.Objects.Schedule.Responce
     {
         public GroupResponce Group { get; set; }
 
-        public List<WeekResponce> Weeks{get;set;}
+        public List<WeekResponce> Weeks { get; set; }
     }
 }

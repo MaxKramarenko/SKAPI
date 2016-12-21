@@ -2,10 +2,6 @@
 using SKAPI.BL.Objects.Request;
 using SKAPI.Sevices.Implementation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -24,13 +20,6 @@ namespace SKAPI.Controllers
         }
 
         [HttpGet]
-        [Route("schedule/search")]
-        public JsonRequestResult Search([FromBody]ScheduleSearchRequest request)
-        {
-            return new JsonRequestResult(_scheduleService.Search(request));
-        }
-
-        [HttpGet]
         [Route("schedule/groups/search/{id}")]
         public JsonRequestResult GroupSearch([FromUri]String id)
         {
@@ -42,13 +31,6 @@ namespace SKAPI.Controllers
         public JsonRequestResult getGroupByName([FromUri]String id)
         {
             return new JsonRequestResult(_scheduleService.getGroupByName(id));
-        }
-
-        [HttpGet]
-        [Route("schedule/properties")]
-        public JsonRequestResult GetProperties()
-        {
-            return new JsonRequestResult(_scheduleService.GetProperties());
         }
 
         [HttpGet]

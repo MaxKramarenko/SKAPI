@@ -21,10 +21,11 @@ namespace SKAPI.BL.Objects.OwnSchedule
 
         public PairType Type { get; set; }
 
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
+
         //public List<Notice> Notices { get; set; }
         //public List<Notify> Notifies { get; set; }
         //public Color Color { get; set; }
-
-
     }
 }

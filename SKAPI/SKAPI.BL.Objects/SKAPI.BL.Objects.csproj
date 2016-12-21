@@ -82,7 +82,11 @@
     <Compile Include="Extensions\CurrentWeekExtension.cs" />
     <Compile Include="Extensions\GroupExtension.cs" />
     <Compile Include="Extensions\GroupsTVP.cs" />
-    <Compile Include="Extensions\TimeLineToScheduleExtenssion.cs" />
+    <Compile Include="Extensions\TimeLineToOwnScheduleExtension.cs" />
+    <Compile Include="Extensions\TimeLineToScheduleExtension.cs" />
+    <Compile Include="OwnSchedule\OwnDayResponce.cs" />
+    <Compile Include="OwnSchedule\OwnScheduleResponce.cs" />
+    <Compile Include="OwnSchedule\OwnWeekResponce.cs" />
     <Compile Include="Request\GroupRequest.cs" />
     <Compile Include="Request\GroupsRequest.cs" />
     <Compile Include="Resolvers\ClassRoomResolver.cs" />
@@ -118,7 +122,6 @@
     <Compile Include="Schedule\Responce\WeekResponce.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

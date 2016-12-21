@@ -1,4 +1,5 @@
-﻿using SKAPI.BL.Objects.OwnSchedule;
+﻿using SKAPI.BL.Objects.Extensions;
+using SKAPI.BL.Objects.OwnSchedule;
 using SKAPI.DAL.Repositories;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,9 @@ namespace SKAPI.Sevices.Implementation
             return _repository.Get(new {Name = name });
         }
 
-        public List<Pair> GetAll()
+        public OwnScheduleResponce GetAll()
         {
-            return _repository.Get(new { });
+            return _repository.Get(new { }).ToResponce();
         }
 
         public Guid Update(Pair pair)

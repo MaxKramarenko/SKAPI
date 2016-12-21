@@ -21,8 +21,6 @@ namespace SKAPI.BL.Objects.Extensions
             table.Columns.Add("Type");
             table.Columns.Add("Url");
            
-
-
             foreach (var g in groups)
             {
                 var row = table.NewRow();
@@ -33,7 +31,6 @@ namespace SKAPI.BL.Objects.Extensions
                 row["Okr"] = g.Okr;
                 row["Type"] = g.Type;
                 row["Url"] = "";
-               
 
                 table.Rows.Add(row);
             }

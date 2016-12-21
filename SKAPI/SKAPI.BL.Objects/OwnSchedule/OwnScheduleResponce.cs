@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace SKAPI.BL.Objects.OwnSchedule
 {
-    public enum PairType : int
+    public class OwnScheduleResponce
     {
-        Lab = 0,
-        Lec = 1
+        public List<OwnWeekResponce> Weeks { get; set; }
     }
 }

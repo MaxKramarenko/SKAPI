@@ -15,11 +15,6 @@ namespace SKAPI.Sevices.Implementation
 {
     public class ScheduleService
     {
-        public List<Pair> Search(ScheduleSearchRequest scheduleRequest)
-        {
-            return new List<Pair>();
-        }
-
         public CurrentWeekResponce getCurrentWeek()
         {
             var result = new CurrentWeekResponce();
@@ -45,11 +40,6 @@ namespace SKAPI.Sevices.Implementation
             var response = SendRequest("http://api.rozklad.org.ua/v2/groups/" + id);
             var group = JsonConvert.DeserializeObject<GroupRequest>(response);
             return group.group.ToGroup();
-        }
-
-        public List<Pair> GetProperties()
-        {
-            return new List<Pair>();
         }
 
         public List<GroupResponce> GetAllGroups()

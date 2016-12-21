@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SKAPI.BL.Objects.Extensions
 {
-    public static class TimeLineToScheduleExtenssion
+    public static class TimeLineToScheduleExtension
     {
         public static ScheduleResponce ToResponce(this TimeLine timeLine)
         {
@@ -185,6 +185,11 @@ namespace SKAPI.BL.Objects.Extensions
             {
                 result.Room = lesson.Room.Split('-')[0] == null ? "" : lesson.Room.Split('-')[0];
                 result.Building = lesson.Room.Split('-')[1] == null ? "" : lesson.Room.Split('-')[1];
+            }
+            else
+            {
+                result.Room = "";
+                result.Building = "";
             }
 
             return result;

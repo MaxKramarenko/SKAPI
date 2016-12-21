@@ -15,8 +15,7 @@ namespace SKAPI.DAL.Repositories
         {
             using (
                Repository.GetConnection()
-                    .QueryMultiple("GroupInsert", obj, commandType: CommandType.StoredProcedure,
-                        commandTimeout: int.MaxValue)) { }
+                    .QueryMultiple("GroupInsert", obj, commandType: CommandType.StoredProcedure, commandTimeout: int.MaxValue)) { }
         }
 
         public List<GroupResponce> Get(object obj)

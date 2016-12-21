@@ -27,14 +27,17 @@ namespace SKAPI.DAL.Repositories
             {
                 ID = pair.ID,
                 Name = pair.Name,
-                ClassRoom = pair.Room,
+                Room = pair.Room,
                 pair.Type,
                 pair.Teacher,
-                Pair = pair.Number,
+                Number = pair.Number,
                 Day = pair.Day,
-                pair.Week
+                pair.Week,
+                pair.StartTime,
+                pair.EndTime
             }, commandType: CommandType.StoredProcedure, commandTimeout: int.MaxValue).First();
         }
+
         public void Delete(object obj)
         {
             Repository.GetConnection()

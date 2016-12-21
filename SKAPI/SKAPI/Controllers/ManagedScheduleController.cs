@@ -49,6 +49,5 @@ namespace SKAPI.Controllers
             _managedService.Delete(id);
             return new JsonRequestResult(true);
         }
-
     }
 }
