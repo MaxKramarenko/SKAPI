@@ -11,7 +11,7 @@ namespace SKAPI.BL.Objects.OwnSchedule
         public Guid? ID { get; set; }
 
         public int Week { get; set; }
-        public int Day { get; set; }
+        public DayNameEnum Day { get; set; }
 
         public int Number { get; set;}
 

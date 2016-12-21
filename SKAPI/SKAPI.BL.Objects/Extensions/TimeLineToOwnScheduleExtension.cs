@@ -1,5 +1,7 @@
 ﻿using SKAPI.BL.Objects.OwnSchedule;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SKAPI.BL.Objects.Extensions
 {
@@ -29,36 +31,7 @@ namespace SKAPI.BL.Objects.Extensions
                 {
                     OwnDayResponce day = new OwnDayResponce();
                     day.Number = pair.Day;
-                    switch (pair.Day)
-                    {
-                        case 1:
-                            day.Name = "Понеділок";
-                            break;
 
-                        case 2:
-                            day.Name = "Вівторок";
-                            break;
-
-                        case 3:
-                            day.Name = "Середа";
-                            break;
-
-                        case 4:
-                            day.Name = "Четвер";
-                            break;
-
-                        case 5:
-                            day.Name = "П'ятниця";
-                            break;
-
-                        case 6:
-                            day.Name = "Субота";
-                            break;
-
-                        case 7:
-                            day.Name = "Неділя";
-                            break;
-                    }
                     day.Pairs = new List<Pair>();
                     day.Pairs.Add(pair);
                     result.Weeks[pair.Week - 1].Days.Add(day);

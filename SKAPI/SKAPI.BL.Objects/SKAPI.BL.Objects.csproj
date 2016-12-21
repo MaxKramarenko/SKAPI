@@ -84,6 +84,8 @@
     <Compile Include="Extensions\GroupsTVP.cs" />
     <Compile Include="Extensions\TimeLineToOwnScheduleExtension.cs" />
     <Compile Include="Extensions\TimeLineToScheduleExtension.cs" />
+    <Compile Include="OwnSchedule\DayNameEnum.cs" />
+    <Compile Include="OwnSchedule\DayNamesAttribute.cs" />
     <Compile Include="OwnSchedule\OwnDayResponce.cs" />
     <Compile Include="OwnSchedule\OwnScheduleResponce.cs" />
     <Compile Include="OwnSchedule\OwnWeekResponce.cs" />
